@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nayara & Júnior</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/yourkitcode.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <main id="menu-inicial" class="active">
+    <h1>Nayara & Júnior</h1>
+    <blockquote>“Deus é amor, e quem permanece no amor permanece em Deus.” — 1 João 4:16</blockquote>
+    <div class="botoes-menu">
+      <button onclick="showSection('linha-do-tempo')"><i class="fas fa-film"></i> Linha do Tempo</button>
+      <button onclick="showSection('quiz')"><i class="fas fa-question-circle"></i> Quiz</button>
+      <button onclick="showSection('frases')"><i class="fas fa-feather-alt"></i> Frases de Conforto</button>
+      <button onclick="showSection('palavras')"><i class="fas fa-heart"></i> Palavras de Carinho</button>
+    </div>
+  </main>
+
+  <section id="linha-do-tempo" class="hidden">
+    <a href="#" class="voltar" onclick="backToMenu()"><i class="fas fa-arrow-left"></i> Voltar</a>
+    <div class="carretel">
+      <img src="fotos/JUNHO-2024.webp" alt="Junho 2024 — Sorrisos que aquecem o inverno" onclick="abrirModal('fotos/JUNHO-2024.webp', 'Junho 2024 — Sorrisos que aquecem o inverno')">
+      <img src="fotos/Julho-2024.jpg" alt="Julho 2024 — O tempo parou pra nos ver rir" onclick="abrirModal('fotos/Julho-2024.jpg', 'Julho 2024 — O tempo parou pra nos ver rir')">
+      <img src="fotos/Agosto-2024.jpg" alt="Agosto 2024 — Pequenas alegrias diárias" onclick="abrirModal('fotos/Agosto-2024.jpg', 'Agosto 2024 — Pequenas alegrias diárias')">
+      <img src="fotos/Setembro-2024.jpg" alt="Setembro 2024 — Visitando nosso futuro" onclick="abrirModal('fotos/Setembro-2024.jpg', 'Setembro 2024 — Visitando nosso futuro')">
+      <img src="fotos/Outubro-2024.jpg" alt="Outubro 2024 — Abraços que dizem tudo" onclick="abrirModal('fotos/Outubro-2024.jpg', 'Outubro 2024 — Abraços que dizem tudo')">
+      <img src="fotos/Novembro-2024.jpg" alt="Novembro 2024 — Aventuras e planos a dois" onclick="abrirModal('fotos/Novembro-2024.jpg', 'Novembro 2024 — Aventuras e planos a dois')">
+      <img src="fotos/Dezembro-2024.jpg" alt="Dezembro 2024 — Luzes e memórias que brilham" onclick="abrirModal('fotos/Dezembro-2024.jpg', 'Dezembro 2024 — Luzes e memórias que brilham')">
+      <img src="fotos/Janeiro-2025.jpg" alt="Janeiro 2025 — O começo de um novo ciclo juntos" onclick="abrirModal('fotos/Janeiro-2025.jpg', 'Janeiro 2025 — O começo de um novo ciclo juntos')">
+      <img src="fotos/Fevereiro-2025.jpg" alt="Fevereiro 2025 — Dias leves, promessas e sorrisos" onclick="abrirModal('fotos/Fevereiro-2025.jpg', 'Fevereiro 2025 — Dias leves, promessas e sorrisos')">
+      <img src="fotos/MARÇO-2025.jpg" alt="Março 2025 — Mais um capítulo dessa aventura a dois" onclick="abrirModal('fotos/MARÇO-2025.jpg', 'Março 2025 — Mais um capítulo dessa aventura a dois')">
+      <img src="fotos/Maio-2025.jpg" alt="Maio 2025 — Cumplicidade, fé e sonhos compartilhados" onclick="abrirModal('fotos/Maio-2025.jpg', 'Maio 2025 — Cumplicidade, fé e sonhos compartilhados')">
+    </div>
+    <div id="modal" class="modal hidden">
+      <span onclick="fecharModal()">×</span>
+      <img id="modal-img" src="" alt="">
+      <p id="modal-caption"></p>
+    </div>
+  </section>
+
+  <section id="quiz" class="hidden">
+    <a href="#" class="voltar" onclick="backToMenu()"><i class="fas fa-arrow-left"></i> Voltar</a>
+    <form id="quiz-form"></form>
+  </section>
+
+  <section id="frases" class="hidden">
+    <a href="#" class="voltar" onclick="backToMenu()"><i class="fas fa-arrow-left"></i> Voltar</a>
+    <div class="cards-frases">
+      <blockquote>O amor é paciente, o amor é bondoso. Não inveja, não se vangloria, não se orgulha. — 1 Coríntios 13:4</blockquote>
+      <blockquote>Façam tudo com amor. — 1 Coríntios 16:14</blockquote>
+      <blockquote>O essencial não é o que fazemos, mas o amor com que o fazemos. — Santa Teresa de Calcutá</blockquote>
+      <blockquote>O amor verdadeiro não consiste em receber, mas em dar. — São João Paulo II</blockquote>
+      <blockquote>Deus é amor, e quem permanece no amor permanece em Deus. — 1 João 4:16</blockquote>
+      <blockquote>Amar não é olhar um para o outro, é olhar juntos na mesma direção. — Santa Teresa d’Ávila</blockquote>
+      <blockquote>O amor tudo suporta, tudo crê, tudo espera, tudo desculpa. O amor jamais passará. — 1 Coríntios 13:7-8</blockquote>
+      <blockquote>Quem não vive para servir, não serve para viver. — Dom Hélder Câmara</blockquote>
+      <blockquote>O que Deus uniu, o homem não separe. — Marcos 10:9</blockquote>
+      <blockquote>A família é santuário da vida e do amor. — São João Paulo II</blockquote>
+    </div>
+  </section>
+
+  <section id="palavras" class="hidden">
+    <video autoplay muted loop id="video-fundo">
+      <source src="videos/conforto.mp4" type="video/mp4">
+      Seu navegador não suporta vídeos HTML5.
+    </video>
+
+    <a href="#" class="voltar" onclick="backToMenu()"><i class="fas fa-arrow-left"></i> Voltar</a>
+    <div class="badges">
+      <span>Amor</span>
+      <span>Fé</span>
+      <span>Parceria</span>
+      <span>Cuidado</span>
+      <span>Confiança</span>
+      <span>Sorriso</span>
+      <span>Presente</span>
+      <span>Sonho</span>
+      <span>Paz</span>
+      <span>União</span>
+      <span>Caminho</span>
+      <span>Abraço</span>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

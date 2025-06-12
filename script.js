@@ -1,5 +1,5 @@
 
-let badgeUpdateHandler;
+let badgeUpdateHandler = null;
 
 function showSection(id) {
   document.querySelectorAll('main, section').forEach(el => el.classList.add('hidden'));
@@ -28,6 +28,7 @@ function fecharModal() {
 }
 
 function startBadgeSequence() {
+  stopBadgeSequence();
   const spans = document.querySelectorAll('#palavras .badges span');
   const video = document.getElementById('video-fundo');
   const intervalo = 2; // segundos
@@ -45,7 +46,10 @@ function startBadgeSequence() {
 function stopBadgeSequence() {
   const spans = document.querySelectorAll('#palavras .badges span');
   const video = document.getElementById('video-fundo');
-  video.removeEventListener('timeupdate', badgeUpdateHandler);
+  if (badgeUpdateHandler && video) {
+    video.removeEventListener('timeupdate', badgeUpdateHandler);
+    badgeUpdateHandler = null;
+  }
   spans.forEach(s => s.classList.remove('show'));
 }
 

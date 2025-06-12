@@ -1,12 +1,20 @@
 
+let badgeUpdateHandler;
+
 function showSection(id) {
   document.querySelectorAll('main, section').forEach(el => el.classList.add('hidden'));
   document.getElementById(id).classList.remove('hidden');
+  if (id === 'palavras') {
+    startBadgeSequence();
+  } else {
+    stopBadgeSequence();
+  }
 }
 
 function backToMenu() {
   document.querySelectorAll('section').forEach(el => el.classList.add('hidden'));
   document.getElementById('menu-inicial').classList.remove('hidden');
+  stopBadgeSequence();
 }
 
 // Modal
@@ -17,6 +25,28 @@ function abrirModal(src, legenda) {
 }
 function fecharModal() {
   document.getElementById('modal').classList.add('hidden');
+}
+
+function startBadgeSequence() {
+  const spans = document.querySelectorAll('#palavras .badges span');
+  const video = document.getElementById('video-fundo');
+  const intervalo = 2; // segundos
+  spans.forEach(s => s.classList.remove('show'));
+
+  badgeUpdateHandler = () => {
+    const index = Math.floor(video.currentTime / intervalo) % spans.length;
+    spans.forEach((s, i) => s.classList.toggle('show', i === index));
+  };
+
+  badgeUpdateHandler();
+  video.addEventListener('timeupdate', badgeUpdateHandler);
+}
+
+function stopBadgeSequence() {
+  const spans = document.querySelectorAll('#palavras .badges span');
+  const video = document.getElementById('video-fundo');
+  video.removeEventListener('timeupdate', badgeUpdateHandler);
+  spans.forEach(s => s.classList.remove('show'));
 }
 
 // Quiz multipasso

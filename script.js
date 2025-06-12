@@ -34,6 +34,9 @@ function startBadgeSequence() {
   const intervalo = 2; // segundos
   spans.forEach(s => s.classList.remove('show'));
 
+  if (!video) return;
+  video.currentTime = 0;
+
   badgeUpdateHandler = () => {
     const index = Math.floor(video.currentTime / intervalo) % spans.length;
     spans.forEach((s, i) => s.classList.toggle('show', i === index));
@@ -51,6 +54,10 @@ function stopBadgeSequence() {
     badgeUpdateHandler = null;
   }
   spans.forEach(s => s.classList.remove('show'));
+  if (video) {
+    video.pause();
+    video.currentTime = 0;
+  }
 }
 
 // Quiz multipasso
